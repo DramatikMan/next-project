@@ -8,5 +8,6 @@ aiohttp="*"
 
 [dev-packages]
 pytest="*"
-pytest-cov = "*"
-flake8 = "*"
+pytest-cov="*"
+pytest-aiohttp="*"
+flake8="*"
