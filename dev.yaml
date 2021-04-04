@@ -1,0 +1,15 @@
+services:
+
+  web:
+    build:
+      context: .
+      target: development
+    ports:
+      - '5030:8080'
+    volumes:
+      - type: bind
+        source: ./app
+        target: /project/app
+      - type: bind
+        source: ./tests
+        target: /project/tests
