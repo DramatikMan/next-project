@@ -1,14 +1,15 @@
-# base
-FROM python:slim
-WORKDIR ~/application
+### ~ DEVELOPMENT ~ ###
 
-# virtual environment
+FROM python:slim AS development
+
+WORKDIR /project
 COPY Pipfile .
 RUN \
   pip install pipenv \
   && mkdir .venv \
-  && pipenv install
+  && pipenv install --dev --skip-lock
+COPY . .
+CMD pipenv run python app/server.py
 
-# application
-COPY app/ .
-CMD pipenv run python server.py
+
+### ~ PRODUCTION ~ ###
