@@ -1,0 +1,9 @@
+# dev
+.git
+.dockerignore
+dev.Dockerfile
+dev.yaml
+
+# text
+LICENSE
+README.md
