@@ -1,0 +1,29 @@
+name: Test_container
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+jobs:
+
+  Test_container:
+
+    runs-on: ubuntu-latest
+    container: python:slim
+
+    steps:
+
+    - uses: actions/checkout@v2
+
+    - name: Set up Python 3.9
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.9'
+
+    - name: Install dependencies
+      run: |
+        pip install pipenv
+        mkdir .venv
+        pipenv install --dev --skip-lock
