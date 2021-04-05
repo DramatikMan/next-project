@@ -1,0 +1,38 @@
+name: Test
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+jobs:
+
+  pytest:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+    - uses: actions/checkout@v2
+
+    - name: Set up Python 3.9
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.9'
+
+    - name: Install dependencies
+      run: |
+        pip install pipenv
+        pipenv install --dev --skip-lock
+
+    - name: Lint with flake8
+      run: |
+        flake8 application --count --select=E9,F63,F7,F82 --show-source --statistics
+        flake8 application --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+
+    - name: Test with pytest
+      run: pytest --cov
+
+    - name: Upload coverage to codecov.io
+      uses: codecov/codecov-action@v1
