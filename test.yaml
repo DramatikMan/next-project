@@ -9,4 +9,8 @@ services:
         source: ./htmlcov
         target: /project/htmlcov
 
-    command: pipenv run pytest --cov --cov-report html
+    command: sh -c "
+        pipenv run pytest --cov --cov-report html
+        && pipenv run flake8 application --count --select=E9,F63,F7,F82 --show-source --statistics
+        && pipenv run flake8 application --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+      "
