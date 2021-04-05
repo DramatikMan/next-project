@@ -1,8 +1,12 @@
-# dev
+# development
 .git
 .dockerignore
-dev.Dockerfile
+Dockerfile
 dev.yaml
+
+# testing
+test.yaml
+htmlcov
 
 # text
 LICENSE

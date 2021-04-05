@@ -1,0 +1,12 @@
+services:
+
+  web:
+    build:
+      context: .
+      target: development
+    volumes:
+      - type: bind
+        source: ./htmlcov
+        target: /project/htmlcov
+
+    command: pipenv run pytest --cov --cov-report html
