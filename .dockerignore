@@ -11,3 +11,6 @@ htmlcov
 # text
 LICENSE
 README.md
+
+# CI
+.github
