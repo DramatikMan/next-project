@@ -1,9 +1,11 @@
 services:
 
   web:
+
     build:
       context: .
       target: development
+
     volumes:
       - type: bind
         source: ./htmlcov
