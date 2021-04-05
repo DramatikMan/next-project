@@ -33,7 +33,7 @@ jobs:
         pipenv run flake8 application --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
 
     - name: Test with pytest
-      run: pipenv run pytest --cov --cov-report
+      run: pipenv run pytest --cov --cov-report html
 
     - name: Upload coverage to codecov.io
       uses: codecov/codecov-action@v1.3.2
