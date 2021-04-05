@@ -10,6 +10,3 @@ services:
       - type: bind
         source: ./app
         target: /project/app
-      - type: bind
-        source: ./tests
-        target: /project/tests
