@@ -12,8 +12,6 @@ jobs:
 
     runs-on: ubuntu-latest
     container: python
-      volumes:
-        /next-project:/next-project
 
     steps:
 
