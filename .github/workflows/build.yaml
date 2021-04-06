@@ -1,4 +1,4 @@
-name: Push to ghcr.io
+name: Build
 
 on:
   workflow_run:
@@ -10,30 +10,31 @@ jobs:
 
   build_and_push:
 
-    name: Build & push
+    name: Build & push to GHCR
     runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
 
     steps:
-      -
-        name: Checkout
+
+      - name: Checkout
         uses: actions/checkout@v2
-      -
-        name: Set up Docker Buildx
+
+      - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
-      -
-        name: Login to GitHub Container Registry
+
+      - name: Login to GitHub Container Registry
         uses: docker/login-action@v1
         with:
           registry: ghcr.io
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GHCR_PAT }}
-      -
-        name: Append downcase repo path to the environment
+
+      - name: Append downcase repo path to the environment
         run: echo "REPO=${GITHUB_REPOSITORY,,}" >> ${GITHUB_ENV}
-      -
-        name: Build and push
+
+      - name: Build and push
         uses: docker/build-push-action@v2
         with:
           context: .
           push: true
-          tags: ghcr.io/${{ env.REPO }}:${{ github.sha }}
+          tags: ghcr.io/${{ env.REPO }}:latest
