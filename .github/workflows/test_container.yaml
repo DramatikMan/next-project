@@ -11,7 +11,9 @@ jobs:
   Test_container:
 
     runs-on: ubuntu-latest
-    container: python:slim
+    container: python
+      volumes:
+        /next-project:/next-project
 
     steps:
 
