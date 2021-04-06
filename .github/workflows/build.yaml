@@ -1,4 +1,4 @@
-name: Build & push Docker image to GitHub Container Registry
+name: Push to ghcr.io
 
 on:
   workflow_run:
@@ -36,4 +36,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: ghcr.io/${{ env.REPO }}:latest
+          tags: ghcr.io/${{ env.REPO }}:${{ github.sha }
