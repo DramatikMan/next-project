@@ -8,8 +8,9 @@ on:
 
 jobs:
 
-  Test:
+  run_tests:
 
+    name: Run tests
     runs-on: ubuntu-latest
     container: python
 
