@@ -8,8 +8,8 @@ services:
 
     ports:
       - '5030:8080'
-      
+
     volumes:
       - type: bind
-        source: ./app
-        target: /project/app
+        source: ./application
+        target: /project/application
