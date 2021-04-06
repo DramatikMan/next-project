@@ -31,8 +31,5 @@ jobs:
     - name: Test with pytest
       run: pipenv run pytest --cov --cov-report xml:coverage.xml
 
-    - name: Print {$PWD} content
-      run: ls -a -l
-
     - name: Upload coverage to codecov.io
       uses: codecov/codecov-action@v1.3.2
