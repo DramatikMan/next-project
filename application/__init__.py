@@ -11,7 +11,7 @@ async def hello(request):
     return web.Response(text=text)
 
 
-def create_app(loop):
+async def create_app(loop):
     app = web.Application(loop=loop)
     app.add_routes(routes)
     return app
