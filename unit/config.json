@@ -1,0 +1,17 @@
+{
+    "listeners": {
+        "*:8000": {
+            "pass": "applications/webapp"
+        }
+    },
+
+    "applications": {
+        "webapp": {
+            "type": "python",
+            "path": "/srv/project",
+            "home": "/srv/project/.venv",
+            "module": "unit.webapp",
+            "callable": "app"
+        }
+    }
+}
