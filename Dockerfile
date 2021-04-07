@@ -9,7 +9,8 @@ RUN \
   && mkdir .venv \
   && pipenv install --dev --skip-lock
 COPY . .
-CMD pipenv run python app/server.py
+CMD pipenv run adev runserver application/__init__.py --app-factory create_app
+
 
 
 ### ~ PRODUCTION ~ ###
