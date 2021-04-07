@@ -1,0 +1,10 @@
+services:
+
+  web:
+
+    build:
+      context: .
+      target: production
+
+    ports:
+      - '5030:8000'
