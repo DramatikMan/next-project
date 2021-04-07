@@ -2,15 +2,18 @@
 .git
 .dockerignore
 Dockerfile
-dev.yaml
+compose.dev.yaml
 
 # testing
-test.yaml
+compose.test.yaml
 htmlcov
+
+# production
+compose.prod.yaml
+
+# CI
+.github
 
 # text
 LICENSE
 README.md
-
-# CI
-.github
