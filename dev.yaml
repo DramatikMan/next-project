@@ -7,7 +7,7 @@ services:
       target: development
 
     ports:
-      - '5030:8080'
+      - '5030:8000'
 
     volumes:
       - type: bind
