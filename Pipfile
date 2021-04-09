@@ -12,3 +12,6 @@ pytest="*"
 pytest-cov="*"
 pytest-aiohttp="*"
 flake8="*"
+
+[scripts]
+devserver = "adev runserver application/factory.py --app-factory create_app"
