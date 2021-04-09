@@ -1,19 +1,12 @@
-# development
 .git
+.github
+LICENSE
+README.md
+htmlcov
+
+### ~ Docker ~ ###
 .dockerignore
 Dockerfile
 compose.dev.yaml
-
-# testing
 compose.test.yaml
-htmlcov
-
-# production
 compose.prod.yaml
-
-# CI
-.github
-
-# text
-LICENSE
-README.md
