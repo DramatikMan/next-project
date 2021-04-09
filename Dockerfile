@@ -1,24 +1,17 @@
-### ~ DEVELOPMENT ~ ###
+ARG build_env
 
-FROM python:slim AS development
-
+FROM python:slim AS base
+SHELL ["/bin/bash", "-c"]
 WORKDIR /project
-COPY Pipfile .
-RUN \
-  pip install pipenv \
-  && mkdir .venv \
-  && pipenv install --dev --skip-lock
-COPY . .
-CMD pipenv run adev runserver application/__init__.py --app-factory create_app
+COPY Pipfile scripts ./
+RUN pip install pipenv && mkdir .venv && ./pipenv_install.sh
 
-
-
-### ~ PRODUCTION ~ ###
-
-FROM nginx/unit:1.23.0-python3.9 AS production
-
-WORKDIR /srv/project
-COPY --from=development /project/.venv .venv
+FROM base as development
 COPY application application
-COPY unit/webapp.py unit/webapp.py
-COPY unit/config.json /docker-entrypoint.d/config.json
+COPY tests tests
+COPY .coveragerc .coveragerc
+CMD pipenv run devserver
+
+FROM base as production
+COPY application application
+CMD ./supervisord.sh && pipenv run python app.py
