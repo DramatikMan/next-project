@@ -21,7 +21,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: check scripts permission
+      - name: Make scripts executable
+        uses: chmod +x scripts/*
+
+      - name: Check scripts permissions
         run: ls -l -a scripts/*
 #      - name: Docker Compose
 #        run: docker-compose -f compose.prod.yaml up --build -d
