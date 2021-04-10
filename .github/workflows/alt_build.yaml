@@ -1,10 +1,12 @@
 name: Alt Build
 
 on:
-  workflow_run:
-    workflows: ['Test']
+  push:
     branches: [main]
-    types: [completed]
+#  workflow_run:
+#    workflows: ['Test']
+#    branches: [main]
+#    types: [completed]
 
 jobs:
 
@@ -19,5 +21,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Docker Compose
-        run: docker-compose -f compose.prod.yaml up --build -d
+      - name: check scripts permission
+        run: ls -l -a scripts/*
+#      - name: Docker Compose
+#        run: docker-compose -f compose.prod.yaml up --build -d
