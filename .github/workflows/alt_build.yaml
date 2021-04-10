@@ -25,4 +25,4 @@ jobs:
         run: chmod +x scripts/*
 
       - name: Docker Compose
-        run: docker-compose -f scripts/compose.prod.yaml up --build -d
+        run: docker-compose -f compose.prod.yaml up --build -d
