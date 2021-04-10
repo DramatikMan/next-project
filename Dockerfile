@@ -14,4 +14,4 @@ CMD pipenv run devserver
 
 FROM base as production
 COPY application application
-CMD ./supervisord.sh && pipenv run python app.py
+CMD ./supervisord.sh
