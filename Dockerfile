@@ -6,12 +6,12 @@ WORKDIR /project
 COPY Pipfile scripts ./
 RUN ./pipenv_install.sh
 
-FROM base as development
+FROM base AS development
 COPY application application
 COPY tests tests
 COPY .coveragerc .coveragerc
 CMD pipenv run devserver
 
-FROM base as production
+FROM base AS production
 COPY application application
 CMD ./supervisord.sh
