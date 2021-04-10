@@ -9,4 +9,4 @@ htmlcov
 Dockerfile
 compose.dev.yaml
 compose.test.yaml
-compose.prod.yaml
+docker-compose.yaml
