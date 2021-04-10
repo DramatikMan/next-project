@@ -1,0 +1,31 @@
+services:
+
+  web:
+
+    build:
+      args:
+        - build_env=production
+      context: .
+      target: production
+
+    volumes:
+      - 'aiohttp:/tmp/aiohttp'
+      - 'static:/project/application/static'
+
+  proxy:
+
+    image: nginx:alpine
+
+    volumes:
+      - 'aiohttp:/tmp/aiohttp'
+      - 'static:/tmp/static'
+      - type: bind
+        source: ./proxy.config
+        target: /etc/nginx/conf.d/default.conf
+
+    ports:
+      - '5030:5030'
+
+volumes:
+  aiohttp:
+  static:
