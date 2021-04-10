@@ -22,7 +22,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Make scripts executable
-        uses: chmod +x scripts/*
+        run: chmod +x scripts/*
 
       - name: Check scripts permissions
         run: ls -l -a scripts/*
