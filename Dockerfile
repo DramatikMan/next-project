@@ -4,7 +4,8 @@ FROM python:slim AS base
 SHELL ["/bin/bash", "-c"]
 WORKDIR /project
 COPY Pipfile scripts ./
-RUN pip install pipenv && mkdir .venv && ./pipenv_install.sh
+RUN pip install pipenv && mkdir .venv
+RUN ./pipenv_install.sh
 
 FROM base as development
 COPY application application
