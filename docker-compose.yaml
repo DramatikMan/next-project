@@ -9,8 +9,8 @@ services:
       target: production
 
     volumes:
-      - 'aiohttp:/tmp/aiohttp'
-      - 'static:/project/application/static'
+      - aiohttp:/tmp/aiohttp
+      - static:/project/application/stati
 
 volumes:
   aiohttp:
