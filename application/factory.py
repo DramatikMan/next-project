@@ -1,10 +1,13 @@
+from pathlib import Path
+
 from aiohttp import web
 import jinja2
 import aiohttp_jinja2
 
 
 routes = web.RouteTableDef()
-loader = jinja2.FileSystemLoader('/project/application/templates')
+template_path = Path().resolve() / 'application' / 'templates'
+loader = jinja2.FileSystemLoader(template_path.resolve())
 
 
 @routes.get('/')
