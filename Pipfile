@@ -4,14 +4,15 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-aiohttp="*"
+aiohttp = "*"
+aiohttp_jinja2 = "*"
 
 [dev-packages]
-aiohttp-devtools="*"
-pytest="*"
-pytest-cov="*"
-pytest-aiohttp="*"
-flake8="*"
+aiohttp-devtools = "*"
+pytest = "*"
+pytest-cov = "*"
+pytest-aiohttp = "*"
+flake8 = "*"
 
 [scripts]
 devserver = "adev runserver application/factory.py --app-factory create_app"
