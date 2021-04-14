@@ -4,14 +4,12 @@ services:
 
     build:
       args:
-        - build_env=production
+        build_env: production
       context: .
       target: production
 
     volumes:
       - aiohttp:/tmp/aiohttp
-      - static:/project/application/stati
 
 volumes:
   aiohttp:
-  static:
